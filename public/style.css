@@ -33,7 +33,7 @@ body{
 #hero {
     background: rgb(0,119,182);
     background: linear-gradient(45deg, rgba(0,119,182,0.3) 0%, rgba(0,180,216,0.3) 25%, rgba(84,206,229,0.35) 50%, rgba(144,224,239,0.4) 75%, rgba(202,240,248,0.6) 100%);
-    height: 100vh;
+    min-height: 100vh;
 }
 .tagline h1{
     color: #023E8A;
@@ -84,7 +84,7 @@ body{
 
 /* Speakers Section */
 #speakers{
-    height: auto;
+    min-height: 100vh;
 }
 
 #speakers .container{
@@ -170,7 +170,7 @@ body{
 
 .kolom-login{
     width: 400px;
-    height: 350px;
+    height: auto;
 }
 
 .kolom-login input{
@@ -215,14 +215,14 @@ body{
 }
 .kolom-login{
  width: 300px;   
- height: 350px;
+ height: auto;
 }
 
 .kolom-login input{
     width: 250px;
 } 
-.kolom-login button{
-    width: 250px;
+.kolom-login button, .kolom-daftar button{
+    width: 100%;
 }
 }
 
@@ -239,7 +239,7 @@ body{
 .kolom-login input{
     width: 100%;
 } 
-.kolom-login button{
+.kolom-login button, .kolom-daftar button{
     width: 100%;
 }
 }
@@ -282,3 +282,20 @@ body{
             transition: 0.5s;
         }
 /* end Style */
+.kolom-daftar button{
+    padding: 5px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid #6D73FF;
+    background-color: #6D73FF;
+    
+}
+.kolom-daftar button:hover{
+    font-weight: 600;
+    border: 2px solid #6D73FF;
+    background-color: white;
+    color: #6D73FF;
+}

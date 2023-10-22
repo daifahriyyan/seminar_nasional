@@ -44,6 +44,7 @@
         </div>
     </div>
 </section>
+<hr>
 <!-- End About -->
 
 <!-- Speakers -->
@@ -81,6 +82,7 @@
         </div>
     </div>
 </section>
+<hr>
 <!-- End Speakers -->
 
 <!-- Benefits -->
