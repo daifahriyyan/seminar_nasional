@@ -1,0 +1,20 @@
+[33mcommit 216139dd6a01b421225daed76449fa73abe666c3[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: c36f3cc f7391bb
+Author: daifahriyyan <75347204+daifahriyyan@users.noreply.github.com>
+Date:   Fri Oct 6 21:30:12 2023 +0700
+
+    Merge pull request #1 from aoki57/fitur
+    
+    tambah register | Seminar Nasional - Aoki
+
+[33mcommit f7391bb8cbf2f2eafdfdd68ec5b6c42b05d17555[m
+Author: Aoki <aokitakeshi57@gmail.com>
+Date:   Thu Oct 5 23:56:59 2023 +0700
+
+    tambah register
+
+[33mcommit c36f3cc7d476084b2a5bd17d31f5fd45638fc941[m
+Author: Ryan <dfahriyyan@gmail.com>
+Date:   Thu Oct 5 23:38:14 2023 +0700
+
+    Inisialisasi | Seminar Nasional - Ryan
