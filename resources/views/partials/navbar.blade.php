@@ -3,8 +3,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #184082;">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="assets/Logo.png" alt="Logo PCC" width="40">
-            <h4>Seminar Nasional</h4>
+            <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="50">
+            <h4> Seminar Nasional</h4>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -18,9 +18,9 @@
 <section id="hero">
     <div class="container">
         <div class="row judul">
-            <div class="col d-flex text-center justify-content-center align-items-center">
+            <div class="col mt-5 d-flex text-center justify-content-center align-items-center">
                 <div>
-                    <img src="assets/Logo.png" width="50">
+                    <img src="assets/Logo Semnas No Text.png" width="50">
                     <h1>Seminar Nasional</h1>
                 </div>
             </div>

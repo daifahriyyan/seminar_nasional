@@ -11,4 +11,16 @@ class DashboardController extends Controller
             'title' => 'Dashboard'
         ]);
     }
+
+    public function dataPeserta(){
+        return view('dashboard.dataPeserta', [
+            'title' => 'Data Peserta'
+        ]);
+    }
+
+    public function buktiPembayaran(){
+        return view('dashboard.buktiPembayaran', [
+            'title' => 'Bukti Pembayaran'
+        ]);
+    }
 }

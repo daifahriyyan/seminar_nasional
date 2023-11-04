@@ -22,7 +22,10 @@ Route::get('/', function () {
     ]);
 });
 
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dataPeserta', [DashboardController::class, 'dataPeserta'])->middleware('auth');
+Route::get('/buktiPembayaran', [DashboardController::class, 'buktiPembayaran'])->middleware('auth');
 
 // Session 
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
