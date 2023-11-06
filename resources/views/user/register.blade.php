@@ -14,19 +14,15 @@
 <section class="bg">
     <div class="container">
         <div class="row judul">
-            <div class="col text-center">
+            <div class="col text-center mt-5">
                 <div>
-                    <img
-                        src="assets/Logo.png"
-                        width="100"
-                    />
+                    <img src="assets/Logo Semnas No Text.png" width="100"/>
                     <h1>Seminar Nasional</h1>
                 </div>
             </div>
         </div>
         <div class="row container">
-            <div
-                class="container"
+            <div class="container"
                 style="
                     width: 800px;
                     background-color: white;
@@ -35,8 +31,7 @@
                     border-top: 3px solid;
                     border-left: 3px solid;
                     border-color: #48cae4;
-                "
-            >
+                ">
                 <form action="/daftar" method="POST">
                     @csrf
                     <h3 class="mt-3 mb-3">Register</h3>
@@ -146,7 +141,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="ikut" class="form-label"
                                 >Mengikuti Semnas</label
                             >
@@ -175,7 +170,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <button
                             type="submit"
                             class="col-md-12 col-sm-12 mb-5"

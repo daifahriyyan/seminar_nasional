@@ -25,7 +25,11 @@ Route::get('/', function () {
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dataPeserta', [DashboardController::class, 'dataPeserta'])->middleware('auth');
-Route::get('/buktiPembayaran', [DashboardController::class, 'buktiPembayaran'])->middleware('auth');
+Route::post('/UploadData', [DashboardController::class, 'storeData'])->name('LengkapiData')->middleware('auth');
+Route::get('/Pembayaran', [DashboardController::class, 'buktiPembayaran'])->middleware('auth');
+Route::post('/UploadBukti', [DashboardController::class, 'uploadBukti'])->name('UploadBukti')->middleware('auth');
+Route::get('/editBukti/{id}', [DashboardController::class, 'edit'])->name('EditBukti')->middleware('auth');
+Route::get('/DownloadBukti/{id}', [DashboardController::class, 'download'])->name('downloadBukti')->middleware('auth');
 
 // Session 
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');

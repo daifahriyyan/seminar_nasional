@@ -36,12 +36,12 @@
             @auth
             <div class="dropdown">
               <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ auth()->user()->profesi }}
+                {{ auth()->user()->nama }}
               </a>
             
               <ul class="dropdown-menu bg-body">
                 <li><a class="dropdown-item text-secondary" href="/dashboard">Dashboard</a></li>
-                <li><a class="dropdown-item text-secondary" href="/">Home</a></li>
+                <li><a class="dropdown-item text-secondary" href="/buktiPembayaran">Bukti Pembayaran</a></li>
                 <li><hr class="dropdown-divider bg-primary"></li>
                 <form action="/logout" method="POST">
                   @csrf
@@ -50,9 +50,11 @@
               </ul>
             </div>
               @else
-            <div class="btn btn-primary btn-login">
-                <a href="login">Login</a>
-            </div>
+              <a href="login">
+                <div class="btn btn-primary btn-login">
+                  Login
+                </div>
+              </a>
             @endauth
         </div>
     </div>

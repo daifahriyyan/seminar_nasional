@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('peserta', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->string('name');
-            $table->integer('nomor');
-            $table->string('password');
-            $table->string('instansi');
-            $table->string('profesi');
-            $table->string('motivasi');
-            $table->string('bukti');
-            $table->timestamp('expires_at')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('peserta', function (Blueprint $table) {
+        //     $table->id()->autoIncrement();
+        //     $table->string('nama');
+        //     $table->string('user_id');
+        //     $table->string('instansi');
+        //     $table->string('profesi');
+        //     $table->timestamp('expires_at')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('peserta');
+        // Schema::dropIfExists('peserta');
     }
 };

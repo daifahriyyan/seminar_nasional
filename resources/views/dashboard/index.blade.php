@@ -20,8 +20,8 @@
     <div class="col-md-4">
       <div class="p-5 profile-card bg-body-tertiary border rounded-3 text-center">
         <img src="assets/speakers.png" alt="Foto Profile" height="100">
-        <h5>Nama Lengkap</h5>
-        <h6>Asal Instansi</h6>
+        <h5>{{ auth()->user()->nama }}</h5>
+        <h6>{{ auth()->user()->instansi }}</h6>
         <div class="social-links mt-2">
           <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
           <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -55,8 +55,19 @@
         <div class="tab-content pt-2 p-4">
 
           <div class="tab-pane fade show active profile-overview" id="profile-overview">
-            <h5 class="card-title mb-3">Detail Profil</h5>
-
+            <h5 class="card-title mb-3">Detail Profil</h5> <a class="btn btn-primary btn-sm " href="/dataPeserta" role="button">Lengkapi Data</a>
+            @if (session()->has('success'))
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <div class="alert alert-success alert-dismissible fade show" style="min-height: 50px; width:500px;" role="alert">
+                        <div>
+                            {{ session('success') }}
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="row">
               <p class="col-lg-3 col-md-4 label ">Nama Lengkap</p>
               <p class="col-lg-9 col-md-8">{{ auth()->user()->nama }}</p>
@@ -81,21 +92,29 @@
               <p class="col-lg-3 col-md-4 label">Profesi</p>
               <p class="col-lg-9 col-md-8">{{ auth()->user()->profesi }}</p>
             </div>
-
+          @if (isset($pembayaran))
             <div class="row">
               <p class="col-lg-3 col-md-4 label">Seminar</p>
-              <p class="col-lg-9 col-md-8">{{ auth()->user()->motivasi }}</p>
+              <p class="col-lg-9 col-md-8">{{ $pembayaran->seminar }}</p>
             </div>
 
             <div class="row">
               <p class="col-lg-3 col-md-4 label">Pembayaran</p>
-              <p class="col-lg-9 col-md-8">BNI/SPay</p>
+              <p class="col-lg-9 col-md-8">{{ $pembayaran->metode }}</p>
+            </div>
+
+            <div class="row">
+              <p class="col-lg-3 col-md-4 label">Bukti Pembayaran</p>
+              <p class="col-lg-9 col-md-8">
+                <img src="{{ asset('storage/BuktiPembayaran/'.$pembayaran->file) }}" alt="Foto Profile" height="100"></p>
             </div>
 
             <div class="row">
               <p class="col-lg-3 col-md-4 label">Tiket</p>
-              <p class="col-lg-9 col-md-8">23-100</p>
+              <p class="col-lg-9 col-md-8">23 - {{ $pembayaran->tiket }}</p>
             </div>
+              
+          @endif
 
           </div>
 

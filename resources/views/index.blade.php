@@ -13,9 +13,9 @@
             <div class="col-lg-6">
                 <h1 class="fw-medium">Seminar Nasional <br><span class="pbg">2024</span></h1>
                 <h4 class="fw-light text-brand">“The Young Generation to Innovate in The Future Technology”</h4>
-                    <button class="btn mt-5">
-                        <a href="/daftar" class="text-white">DAFTAR</a>
-                    </button>
+                <a href="/daftar" class="btn mt-5 text-white">
+                        DAFTAR
+                </a>
             </div>
             <div class="col-lg-6 my-5 d-flex align-items-center justify-content-center logo order-lg-last order-first">
                 <img src="assets/Logo Semnas No Text.png" class="mt-5">

@@ -13,15 +13,13 @@ class UserController extends Controller
     public function store(Request $request){
 
         $validator = $request->validate([
-            'nama' => 'required | max:255',
-            'email'=> 'required | email | unique:users',
-            'password'=> 'required | min:3 | max:16',
+            'nama'      => 'required | max:255',
+            'email'     => 'required | email | unique:users',
+            'password'  => 'required | min:3 | max:16',
             'konfirmasi'=> 'required | same:password',
-            'nomor'=> 'required | unique:users',
-            'instansi'=> 'required',
-            'profesi'=> 'required',
-            'motivasi'=> 'required',
-            'bukti'=> 'required'
+            'nomor'     => 'required | unique:users',
+            'instansi'  => 'required',
+            'profesi'   => 'required'
         ]);
 
         User::create($validator);
