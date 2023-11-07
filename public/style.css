@@ -82,12 +82,12 @@ body{
     color: #0077B6;
 }
 
-/* Speakers Section */
-#speakers{
+/* Fillers Section */
+#fillers{
     min-height: 100vh;
 }
 
-#speakers .container{
+#fillers .container{
     padding-inline: 100px;
 }
 .card-speak img{
@@ -120,7 +120,7 @@ body{
 }
 .footer h3{
     font-size: 15px;
-    width: 260px;
+    width: 200px;
     line-height: 15px;
 }
 
@@ -224,6 +224,13 @@ body{
 .kolom-login button, .kolom-daftar button{
     width: 100%;
 }
+
+.card-speak img{
+    background-color: white;
+    border-radius: 10px;
+    width: auto;
+    height: 250px;
+}
 }
 
 @media screen and (max-width: 300px) {
@@ -241,6 +248,14 @@ body{
 } 
 .kolom-login button, .kolom-daftar button{
     width: 100%;
+}
+
+
+.card-speak img{
+    background-color: white;
+    border-radius: 10px;
+    width: auto;
+    height: 150px;
 }
 }
 

@@ -50,38 +50,40 @@
 <hr>
 <!-- End About -->
 
-<!-- Speakers -->
-<section id="speakers">
+<!-- Fillers -->
+<section id="fillers">
     <div class="container">
             <div class="title position-relative p-5 d-flex justify-content-center align-items-center">
-                <h1 class="fw-bold">Speakers</h1>
+                <h1 class="fw-bold">Fillers</h1>
                 <div class="baseline position-absolute"></div>
             </div>
         <div class="row">
-            <div class="col col-lg-4 foto">
+            <div class="col col-lg-6 foto">
                 <div class="card-speak text-center d-flex justify-content-center align-items-md-center">
                     <div>
+                        <h1><b>Speaker</b></h1>
                         <img src="assets/user-male.png">
-                        <h3>Valencia Dai Fahriyyan</h3>
+                        <h3>Nama Pembicara</h3>
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col col-lg-6">
                 <div class="card-speak text-center d-flex justify-content-center align-items-md-center">
                     <div>
+                        <h1><b>Moderator</b></h1>
                         <img src="assets/user-female.png">
-                        <h3>Valencia Dai Fahriyyan</h3>
+                        <h3>Nama Moderator</h3>
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            {{-- <div class="col col-lg-4">
                 <div class="card-speak text-center d-flex justify-content-center align-items-md-center">
                     <div>
                         <img src="assets/user-male.png">
                         <h3>Valencia Dai Fahriyyan</h3>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
@@ -271,30 +273,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingNine">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">
-                            Apakah karya Design Infografis dan Design Web yang dikirim akan menjadi hak milik panitia?
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNine">
-                        <div class="accordion-body">
-                            Iya, karya Design Infografis dan Design Web akan menjadi hak milik panitia
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTen">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
-                            Apakah ada biaya pendaftaran lomba?
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTen">
-                        <div class="accordion-body">
-                            Ada, untuk mata lomba Design Infografis sebesar Rp 60.000 per tim , Captire The Flag Competition Rp 85.000 per tim.
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -335,7 +313,7 @@
                 <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 p-5">
                     <h1>Lokasi</h1>
                     <div class="baseline"></div>
-                    <h3>Polytechnic Computer Club, Politeknik Negeri Semarang, Tembalang, Kota Semarang, Jawa Tengah</h3>
+                    <small>Polytechnic Computer Club, Politeknik Negeri Semarang, Tembalang, Kota Semarang, Jawa Tengah</small>
                     <a href="https://ukmpcc.org/"><h3>www.ukm.pcc.org</h3></a>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.47693402717871!2d110.43566543476956!3d-7.052578982961578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708deedf012ca1%3A0x60ff772cc5f49d9c!2sPCC%20SOLUTION%20(%20Tempatnya%20servis%20laptop%20%26%20Komputer)!5e0!3m2!1sid!2sid!4v1699099519118!5m2!1sid!2sid" width="200" height="200" style="border:1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPeserta;
 use App\Models\Pembayaran;
-use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,40 +13,59 @@ class DashboardController extends Controller
 {
     public function index(){
         $pembayaran = Pembayaran::with('user')->where('user_id', Auth::user()->id)->first();
+        $dataPeserta= DataPeserta::with('user')->where('user_id', Auth::user()->id)->first();
 
         return view('dashboard.index', [
             'title' => 'Dashboard',
-            'pembayaran' => $pembayaran
+            'pembayaran' => $pembayaran,
+            'dataPeserta'=> $dataPeserta
         ]);
     }
 
     public function dataPeserta(){
+        $daftarPeserta = User::with('pembayaran', 'dataPeserta')->get()->all();
+
         return view('dashboard.dataPeserta', [
-            'title' => 'Data Peserta'
+            'title' => 'Data Peserta',
+            'daftarPeserta' => $daftarPeserta
         ]);
     }
 
     public function buktiPembayaran(){
-        $pembayaran = Pembayaran::with('user')->where('user_id', Auth::user()->id)->first();
+        $pembayaran = Pembayaran::all();
 
         return view('dashboard.Pembayaran', [
-            'title' => 'Bukti Pembayaran',
-            'pembayaran' => $pembayaran
+            'title'         => 'Bukti Pembayaran',
+            'pembayaran'    => $pembayaran
         ]);
     }
 
-    // public function storeData(Request $request){
-    //     $validator = $request->validate([
-    //         'nama'      => 'required',
-    //         'user_id'   => 'required',
-    //         'instansi'  => 'required',
-    //         'profesi'   => 'required'
-    //     ]);
+    public function storeData(Request $request){
+        $this->validate($request, [
+            'profil'    => 'required|mimes:png,jpg,jpeg',
+            'facebook'  => 'nullable',
+            'instagram' => 'nullable',
+            'tiktok'    => 'nullable',
+            'twitter'   => 'nullable'
+        ]);
 
-    //     Peserta::create($validator);
+        $fotoProfil= $request->file('profil');
+        $namaFile    = time()."-".$fotoProfil->getClientOriginalName();
+        $tujuanUpload   = 'fotoProfil/'.$namaFile;
+        
+        Storage::disk('public')->put($tujuanUpload,file_get_contents($fotoProfil));
 
-    //     return redirect('/dashboard')->with('success', 'Data Peserta Telah dilengkapi');
-    // }
+        $lengkapiData = new DataPeserta();
+        $lengkapiData->user_id      = $request->user_id;
+        $lengkapiData->profil       = $namaFile;
+        $lengkapiData->facebook     = $request->facebook;
+        $lengkapiData->instagram    = $request->instagram;
+        $lengkapiData->twitter      = $request->twitter;
+        $lengkapiData->tiktok       = $request->tiktok;
+        $lengkapiData->save();
+
+        return redirect('/dashboard')->with('success', 'Data Peserta Telah dilengkapi');
+    }
 
     public function uploadBukti(Request $request){
         $this->validate($request, [
@@ -74,6 +93,44 @@ class DashboardController extends Controller
         return redirect('/dashboard')->with('success', 'Upload Bukti Pembayaran Telah Sukses');
     }
 
+    public function editProfil(Request $request, $id){
+        $this->validate($request, [
+            'nama'      => 'required',
+            'email'     => 'required|email',
+            'nomor'     => 'required',
+            'instansi'  => 'required',
+            'profesi'   => 'required'
+        ]);
+        
+        $pembayaran = Pembayaran::where('user_id', $id)->first();
+        $dataPeserta= DataPeserta::where('user_id', $id)->first();
+        $user       = User::where('id', $id)->first();
+
+
+        $user->nama     = $request->nama;
+        $user->email    = $request->email;
+        $user->nomor    = $request->nomor;
+        $user->instansi = $request->instansi;
+        $user->profesi  = $request->profesi;
+        $user->save();
+
+        if (isset($pembayaran)) {
+            $pembayaran->seminar    = $request->seminar;
+            $pembayaran->metode     = $request->metode;
+            $pembayaran->save();
+        }
+
+        if (isset($dataPeserta)) {
+            $dataPeserta->twitter   = $request->twitter;
+            $dataPeserta->facebook  = $request->facebook;
+            $dataPeserta->instagram = $request->instagram;
+            $dataPeserta->tiktok    = $request->tiktok;
+            $dataPeserta->save();
+        }
+
+        return redirect('/dashboard')->with('berhasil', 'Edit Data Berhasil!!!');
+    }
+
     public function edit(Request $request, $id){
         $pembayaran = Pembayaran::where('id', $id)->first();
 
@@ -90,4 +147,17 @@ class DashboardController extends Controller
         // $pathToFile = asset('storage/BuktiPembayaran/'.$id);
         return response()->download($pathToFile);
     }
+    
+    // Edit Password
+    // public function editPass(Request $request){
+    //     $validator = $request->validate([
+    //         'password'      => 'current_password:api',
+    //         'passwordBaru'  => 'required | lowercase | uppercase',
+    //         'rePasswordBaru'=> 'required | same:passwordBaru'
+    //     ]);
+
+    //     User::create($validator);
+        
+    //     return redirect('/dashboard')->with('berhasil', 'Edit Password Berhasil!!!');
+    // }
 }

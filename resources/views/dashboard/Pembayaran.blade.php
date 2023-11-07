@@ -4,8 +4,8 @@
     
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="section-body">
+        @if (auth()->user()->role == 'peserta')
         <h2 class="section-title">Upload Bukti Pembayaran</h2>
-        <!-- <p class="section-lead">Silakan daftarkan team anda melalui tombol di bawah ini.</p> -->
             <div class="card">
                 <div class="card-body">
                     <div class="col-12 col-md-6 col-lg-12">
@@ -14,8 +14,7 @@
                                 <form method="POST" class="needs-validation" enctype="multipart/form-data" novalidate="" autocomplete="off" action="{{ route('UploadBukti') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Nominal</label>
-                                        <input type="text" name="user_id" value="{{ auth()->user()->id }}"> 
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> 
                                     </div>
                                     <div class="form-group mt-3">
                                         <label>Nominal :</label>
@@ -75,9 +74,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            @if (isset($pembayaran))
-                
+            </div>            
+        @else
+            <h2 class="section-title">Daftar Bukti Pembayaran</h2>
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -92,58 +91,66 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
+                            @if (isset($pembayaran))
                             <tbody>
+                                @foreach ($pembayaran as $bayar)
                                 <tr>
-                                    <td>{{ $pembayaran->metode }}</td>
-                                    <td>Rp. {{ number_format($pembayaran->nominal, 2, ',', '.') }} </td>
-                                    <td>{{ $pembayaran->keterangan }}</td>
-                                    <td>{{ $pembayaran->tiket }}</td>
+                                    <td>{{ $bayar->metode }}</td>
+                                    <td>Rp. {{ number_format($bayar->nominal, 2, ',', '.') }} </td>
+                                    <td>{{ $bayar->keterangan }}</td>
+                                    <td>{{ $bayar->tiket }}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('storage/BuktiPembayaran/'.$pembayaran->file) }}" width="200">
-                                        <br>{{ $pembayaran->file }}
-                                        <br><a href="{{ route('downloadBukti', $pembayaran->file) }}">Download</a>
+                                        <img src="{{ asset('storage/BuktiPembayaran/'.$bayar->file) }}" width="200">
+                                        <br>{{ $bayar->file }}
+                                        <br><a href="{{ route('downloadBukti', $bayar->file) }}">Download</a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm " href="/editBukti/{{ $pembayaran->id }}"   role="button">Edit</a>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pembayaran->id }}">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $bayar->id }}">
                                             Edit
                                         </button>
                                     </td>
+                                        
                                 </tr>
+                                @endforeach
                             </tbody>
+                            @endif
                         </table>
                     </div>
                 </div>
             </div>
+            @if (isset($pembayaran))
+            @foreach ($pembayaran as $bayar)
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal{{$pembayaran->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
+            <div class="modal fade" id="exampleModal{{$bayar->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
+                <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Bukti Pembayaran</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <form action="{{ route('EditBukti', $pembayaran->id )}}" method="get">
+                </div>
+                <form action="{{ route('EditBukti', $bayar->id )}}" method="get">
                     <div class="modal-body">
                             @csrf
                             <div class="mb-3">
                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                <input type="text" class="form-control" name="keterangan" id="keterangan" value="{{$pembayaran->keterangan}}">
+                                <input type="text" class="form-control" name="keterangan" id="keterangan" value="{{$bayar->keterangan}}">
                             </div>
                             <div class="mb-3">
                                 <label for="tiket" class="form-label">Urutan Tiket ke</label>
-                                <input type="text" class="form-control" name="tiket" id="tiket" value="{{$pembayaran->tiket}}">
+                                <input type="text" class="form-control" name="tiket" id="tiket" value="{{$bayar->tiket}}">
                             </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                  </form>
+                </form>
                 </div>
-              </div>
             </div>
+            </div>
+            @endforeach
             @endif
+        @endif
     </div>
 </main>
 @endsection

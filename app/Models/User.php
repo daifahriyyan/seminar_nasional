@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function pembayaran(){
         return $this->hasOne(Pembayaran::class);
     }
+
+    public function dataPeserta(){
+        return $this->hasOne(DataPeserta::class);
+    }
 }
