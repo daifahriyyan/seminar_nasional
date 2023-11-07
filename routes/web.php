@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,12 @@ Route::get('/', function () {
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/editData/{id}', [DashboardController::class, 'editProfil'])->name('EditData')->middleware('auth');
+
 Route::get('/dataPeserta', [DashboardController::class, 'dataPeserta'])->middleware('auth');
 Route::post('/UploadData', [DashboardController::class, 'storeData'])->name('LengkapiData')->middleware('auth');
+
 Route::get('/Pembayaran', [DashboardController::class, 'buktiPembayaran'])->middleware('auth');
 Route::post('/UploadBukti', [DashboardController::class, 'uploadBukti'])->name('UploadBukti')->middleware('auth');
 Route::get('/editBukti/{id}', [DashboardController::class, 'edit'])->name('EditBukti')->middleware('auth');
@@ -34,6 +39,7 @@ Route::get('/DownloadBukti/{id}', [DashboardController::class, 'download'])->nam
 // Session 
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate']);
+Route::post('/dashboard', [DashboardController::class, 'editPass'])->name('EditPass');
 
 // logout
 Route::post('/logout', [UserController::class, 'logout']);

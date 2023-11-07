@@ -20,6 +20,11 @@
       .sidebar{
         min-height: 100vh;
       }
+      @media screen and (max-width: 767px){
+        .sidebar{
+          min-height: auto;
+        }
+      }
       .nav-item a,.nav-item{
         color: rgb(168, 168, 168)
       }
@@ -185,7 +190,7 @@
 
 <header class="navbar sticky-top bg-db flex-md-nowrap p-0 shadow" data-bs-theme="dark">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">
-    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25"> Seminar Nasional
+    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Dashboard Seminar Nasional
   </a>
 
   </div>
@@ -214,7 +219,7 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="sidebarMenuLabel">
             <a class="col-md-3 col-lg-2 me-0 px-3 fs-6 text-white text-decoration-none" href="#">
-              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25"> Seminar Nasional
+              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Dashboard Seminar Nasional
             </a>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>

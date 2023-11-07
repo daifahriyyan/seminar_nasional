@@ -18,7 +18,7 @@
                   <a class="nav-link" href="/#about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/#speakers">Pembicara</a>
+                  <a class="nav-link" href="/#fillers">Fillers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/#benefit">Benefit</a>
@@ -41,7 +41,7 @@
             
               <ul class="dropdown-menu bg-body">
                 <li><a class="dropdown-item text-secondary" href="/dashboard">Dashboard</a></li>
-                <li><a class="dropdown-item text-secondary" href="/buktiPembayaran">Bukti Pembayaran</a></li>
+                <li><a class="dropdown-item text-secondary" href="/Pembayaran">Bukti Pembayaran</a></li>
                 <li><hr class="dropdown-divider bg-primary"></li>
                 <form action="/logout" method="POST">
                   @csrf
