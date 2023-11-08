@@ -190,15 +190,15 @@
 
 <header class="navbar sticky-top bg-db flex-md-nowrap p-0 shadow" data-bs-theme="dark">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">
-    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Seminar Nasional
+    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25"> Seminar Nasional
   </a>
 
   </div>
   <ul class="navbar-nav flex-row d-md-none">
     <li class="nav-item text-nowrap">
-      <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
+      {{-- <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
         <svg class="bi"><use xlink:href="#search"/></svg>
-      </button>
+      </button> --}}
     </li>
     <li class="nav-item text-nowrap">
       <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -219,7 +219,7 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="sidebarMenuLabel">
             <a class="col-md-3 col-lg-2 me-0 px-3 fs-6 text-white text-decoration-none" href="#">
-              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Seminar Nasional
+              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25"> Seminar Nasional
             </a>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>

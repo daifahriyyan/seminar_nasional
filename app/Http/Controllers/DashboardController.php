@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataPeserta;
 use App\Models\Pembayaran;
 use App\Models\User;
+use finfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,9 @@ class DashboardController extends Controller
     }
 
     public function dataPeserta(){
-        $daftarPeserta = User::with('pembayaran', 'dataPeserta')->get()->all();
+        $daftarPeserta = User::with('pembayaran', 'dataPeserta')->where('role', 'peserta')->get()->all();
+        $daftarPanitia = User::with('pembayaran', 'dataPeserta')->where('role', 'panitia')->get()->all();
+        
 
         if (Auth::user()->role == 'peserta') {
             $title = 'Input Data';
@@ -35,12 +38,13 @@ class DashboardController extends Controller
         return view('dashboard.dataPeserta', [
             'title'         => $title,
             'active'        => 'Data Peserta',
-            'daftarPeserta' => $daftarPeserta
+            'daftarPeserta' => $daftarPeserta,
+            'daftarPanitia' => $daftarPanitia
         ]);
     }
 
     public function buktiPembayaran(){
-        $pembayaran = Pembayaran::all();
+        $pembayaran = Pembayaran::with('user')->get()->all();
 
         if (Auth::user()->role == 'peserta') {
             $title = 'Input Bukti Pembayaran';

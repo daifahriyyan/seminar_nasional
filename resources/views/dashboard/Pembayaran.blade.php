@@ -5,7 +5,9 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="section-body">
         @if (auth()->user()->role == 'peserta')
-        <h2 class="section-title">Upload Bukti Pembayaran</h2>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="section-title">Upload Bukti Pembayaran</h2>
+        </div>
             <div class="card">
                 <div class="card-body">
                     <div class="col-12 col-md-6 col-lg-12">
@@ -73,16 +75,30 @@
                             </div>
                         </div>
                     </div>
+                        <br>
+                        <h4><b>Metode pembayaran dapat melalui:</b></h4> 
+                        <h5>Transfer : </h5>
+                        <p>BNI 716085642 a.n Naila Karomatul Ulya</p>
+                        <p>Shoppepay 082145288201 a.n Naila Karomatul Ulya</p>
+                        <h5>Virtual account :</h5>
+                        <p>&nbsp;&nbsp;&nbsp;BCA - 122082145288201</p>
+                        <p>&nbsp;&nbsp;&nbsp;BNI - 8807082145288201</p>  
+                        <p>&nbsp;&nbsp;&nbsp;BRI - 112082145288201</p>
                 </div>
             </div>            
         @else
-            <h2 class="section-title">Daftar Bukti Pembayaran</h2>
+        
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2 class="section-title">Daftar Bukti Pembayaran</h2>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>                 
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Nama</th>
                                     <th scope="col">Metode</th>
                                     <th scope="col">Nominal</th>
                                     <th scope="col">Keterangan</th>
@@ -95,6 +111,8 @@
                             <tbody>
                                 @foreach ($pembayaran as $bayar)
                                 <tr>
+                                    <td>{{ $bayar->created_at->isoFormat('D MMMM Y') }}</td>
+                                    <td>{{ $bayar->user->nama }}</td>
                                     <td>{{ $bayar->metode }}</td>
                                     <td>Rp. {{ number_format($bayar->nominal, 2, ',', '.') }} </td>
                                     <td>{{ $bayar->keterangan }}</td>

@@ -53,11 +53,13 @@ body{
 }
 .tagline .btn:hover{
     padding-inline: 20px;
+    color: #023E8A;
     background-color: white;
     color: #023E8A;
 }
 .tagline .btn:focus{
     padding-inline: 20px;
+    color: #023E8A;
     background-color: white;
     color: #023E8A;
 }

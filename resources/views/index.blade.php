@@ -12,8 +12,8 @@
         <div class="row tagline d-flex align-items-center">
             <div class="col-lg-6">
                 <h1 class="fw-medium">Seminar Nasional <br><span class="pbg">2024</span></h1>
-                <h4 class="fw-light text-brand">“The Young Generation to Innovate in The Future Technology”</h4>
-                <a href="/daftar" class="btn mt-5 text-white">
+                <h4 class="fw-light text-brand">“Go Learning Data Analyst With Excel”</h4>
+                <a href="/daftar" class="btn mt-5">
                         DAFTAR
                 </a>
             </div>
@@ -33,10 +33,10 @@
                 <h1 class="fw-bold">About</h1>
                 <div class="baseline position-absolute"></div>
             </div>
-            <div class="col-lg-6 foto d-flex justify-content-center">
+            <div class="col-lg-6 foto d-flex justify-content-center mt-5">
                 <img src="assets/About.jpg">
             </div>
-            <div class="col-lg-6 paragraf">
+            <div class="col-lg-6 paragraf mt-5">
                 <h3 class="fw-bolder">Seminar Nasional</h3>
                 <p>Seminar Nasional ini merupakan acara yang dilakukan sekali setiap tahun oleh Polytechnic Computer Club Politeknik Negeri Semarang atau biasa disebut PCC
                     POLINES yang merupakan bagian dari acara Techcomfest 2024. Tema untuk Seminar Nasional pada tahun 2024 ini adalah GOLDANWE: Go Learning Data Analyst With Excel, yang berisi tentang pengenalan data analyst dengan menggunakan aplikasi Excel.</p>
@@ -62,8 +62,8 @@
                 <div class="card-speak text-center d-flex justify-content-center align-items-md-center">
                     <div>
                         <h1><b>Speaker</b></h1>
-                        <img src="assets/user-male.png">
-                        <h3>Nama Pembicara</h3>
+                        <img src="assets/winataa.png">
+                        <h3>Winata Syahputra</h3>
                     </div>
                 </div>
             </div>
@@ -71,8 +71,8 @@
                 <div class="card-speak text-center d-flex justify-content-center align-items-md-center">
                     <div>
                         <h1><b>Moderator</b></h1>
-                        <img src="assets/user-female.png">
-                        <h3>Nama Moderator</h3>
+                        <img src="assets/moderator.png">
+                        <h3>Pinchy zhafrando</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +161,7 @@
     
     <!-- FAQ -->
     
-<section id="faq" class="section-padding border-top">
+<section id="faq" class="section-padding border-top mb-5">
     <div class="container">
         <div class="title position-relative p-5 d-flex justify-content-center align-items-center">
             <h1 class="fw-bold">FAQ</h1>
@@ -194,19 +194,6 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                            Apa saja benefit yang akan didapat dari Seminar Nasional ini?
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                        <div class="accordion-body">
-                            1) Knowledge 2) Experience 3) E-certificate 4) Relationships 5) Goodie bag 6) Door prize 7) Training
-
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
                             Seminar Nasional akan dilaksanakan dimana saja?
@@ -214,7 +201,7 @@
                     </h2>
                     <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                         <div class="accordion-body">
-                            Seminar dilakukan secara hybrid yaitu secara online via zoom dan offline di Gedung Kerjasama Terpadu Polines dengan alamat Jl. Prof. Sudarto, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah  atau bisa dilihat dengan link: https://maps.app.goo.gl/SJBbNzSH14CV4AsT7
+                            Seminar dilakukan secara hybrid yaitu secara online via zoom dan offline di Gedung Kerjasama Terpadu Polines dengan alamat Jl. Prof. Sudarto, Tembalang, Kec. Tembalang, Kota Semarang, Jawa Tengah  atau bisa klik <a href="https://maps.app.goo.gl/SJBbNzSH14CV4AsT7">disini</a>
                         </div>
                     </div>
                 </div>
@@ -226,7 +213,7 @@
                     </h2>
                     <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
                         <div class="accordion-body">
-                            Untuk pengisi materi sendiri akan kami umumkan di instargam techcomfest instagram.com/techcomfest , jadi stay tune terus yaaaa
+                            Untuk pengisi materi sendiri akan kami umumkan di instargam <a href="https://instagram.com/techcomfest">techcomfest</a>, jadi stay tune terus yaaaa
                         </div>
                     </div>
                 </div>
@@ -268,6 +255,7 @@
                     </h2>
                     <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
                         <div class="accordion-body">
+                            <p>Early Bird : 27k</p>
                             <p>Presale 1: 30k</p>
                             <p>Presale 2: 35k</p>
                         </div>
@@ -285,7 +273,7 @@
         <div class="container">
             
             <div class="row">
-                <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 p-5">
+                <div class="col col-lg-4 col-md-6 col-sm-12 p-5">
                     <h1>Tentang Kami</h1>
                     <div class="baseline"></div>
                     <h3>Polytechnic Computer Club</h3>
@@ -302,30 +290,24 @@
                         <a href="https://www.facebook.com/ukmpcc/"><img src="assets/sosmed/icon facebook.png" style="width: 30px;"></a>
                     </div>
                 </div>
-                <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 p-5 pb-0">
+                <div class="col col-lg-4 col-md-6 col-sm-12 p-5 pb-0">
                     <h1>Contact Person</h1>
                     <div class="baseline"></div>
-                    <h3>Violeta => <a href="https://wa.me/083829136518">083829136518</a></h3>
-                    <h3>Wahyu => <a href="https://wa.me/081225355583">081225355583</a></h3>
+                    <h3>Aina => <a href="https://wa.me/+62895396768260">0895396768260</a></h3>
+                    <h3>Violeta => <a href="https://wa.me/+6283829136518">083829136518</a></h3>
                     <p>E-mail : </p>
                     <h3>Techcomfest2024@gmail.com</h3>
                 </div>
-                <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 p-5">
+                <div class="col col-lg-4 col-md-6 col-sm-12 p-5">
                     <h1>Lokasi</h1>
                     <div class="baseline"></div>
                     <small>Polytechnic Computer Club, Politeknik Negeri Semarang, Tembalang, Kota Semarang, Jawa Tengah</small>
                     <a href="https://ukmpcc.org/"><h3>www.ukm.pcc.org</h3></a>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.47693402717871!2d110.43566543476956!3d-7.052578982961578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708deedf012ca1%3A0x60ff772cc5f49d9c!2sPCC%20SOLUTION%20(%20Tempatnya%20servis%20laptop%20%26%20Komputer)!5e0!3m2!1sid!2sid!4v1699099519118!5m2!1sid!2sid" width="200" height="200" style="border:1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="col col-xl-3 col-lg-4 col-md-6 col-sm-12 p-5">
-                    <h1>Saran</h1>
-                    <div class="baseline"></div>
-                    <textarea name="saran" id="saran" rows="3" placeholder="Ketikkan Saran..."></textarea>
-                    <button type="submit" class="btn btn-primary">Enter</button>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.47693402717871!2d110.43566543476956!3d-7.052578982961578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708deedf012ca1%3A0x60ff772cc5f49d9c!2sPCC%20SOLUTION%20(%20Tempatnya%20servis%20laptop%20%26%20Komputer)!5e0!3m2!1sid!2sid!4v1699099519118!5m2!1sid!2sid" width="300" height="210" style="border:1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <hr>
-            <h3 class="copyright">Copyright <span class="ri-copyright-line"></span>PCC Polines 2023/2024</h3>
+            <h3 class="copyright" style="width: auto">Copyright © PCC Polines 2023/2024</h3>
         </div>
     </div>
 </section>

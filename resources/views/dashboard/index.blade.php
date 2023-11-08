@@ -35,10 +35,18 @@
         <h5>{{ auth()->user()->nama }}</h5>
         <h6>{{ auth()->user()->instansi }}</h6>
         <div class="social-links mt-2">
-          <a href="https://www.twitter.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->twitter : '' }}" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="https://www.facebook.com/{{ (isset($dataPeserta))? $dataPeserta->facebook : '' }}" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->instagram : '' }}" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.tiktok.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->tiktok : '' }}" class="linkedin"><i class="bi bi-tiktok"></i></a>
+          @if (isset($dataPeserta->twitter))
+          <a href="{{ $dataPeserta->twitter }}" class="twitter"><i class="bi bi-twitter"></i></a>
+          @endif
+          @if (isset($dataPeserta->facebook))
+          <a href="{{ $dataPeserta->facebook }}" class="facebook"><i class="bi bi-facebook"></i></a>
+          @endif
+          @if (isset($dataPeserta->instagram))
+          <a href="{{ $dataPeserta->instagram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+          @endif
+          @if (isset($dataPeserta->tiktok))
+          <a href="{{ $dataPeserta->tiktok }}" class="tiktok"><i class="bi bi-tiktok"></i></a>
+          @endif
         </div>
       </div>
     </div>
@@ -229,7 +237,14 @@
               <div class="row mb-3">
                 <label for="metode" class="col-md-4 col-lg-3 col-form-label">Pembayaran</label>
                 <div class="col-md-8 col-lg-9">
-                  <input name="metode" type="text" class="form-control @error('metode') is-invalid @enderror" id="metode" value="{{ $pembayaran->metode }}">
+                  <select class="form-control @error('metode') is-invalid @enderror" name="metode">
+                      <option value="{{ old('metode') }}">default</option>
+                      <option value="VA-BNI">VA - BNI</option>
+                      <option value="VA-BRI">VA - BRI</option>
+                      <option value="VA-BCA">VA - BCA</option>
+                      <option value="Spay">Shopee Pay</option>
+                      <option value="TF-BNI">Transfer - BNI</option>
+                  </select>
                   @error('metode')
                   <div class="invalid-feedback">
                       {{ $message }}
@@ -242,30 +257,30 @@
 
               @if (isset($dataPeserta))
               <div class="row mb-3">
-                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Username Twitter</label>
+                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Link Twitter</label>
                 <div class="col-md-8 col-lg-9">
-                  <input name="twitter" type="text" class="form-control" id="Twitter" value="{{ $dataPeserta->twitter }}">
+                  <input name="twitter" type="url" class="form-control" id="Twitter" value="{{ $dataPeserta->twitter }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Username Facebook</label>
+                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Link Facebook</label>
                 <div class="col-md-8 col-lg-9">
-                  <input name="facebook" type="text" class="form-control" id="Facebook" value="{{ $dataPeserta->facebook }}">
+                  <input name="facebook" type="url" class="form-control" id="Facebook" value="{{ $dataPeserta->facebook }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Username Instagram</label>
+                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Link Instagram</label>
                 <div class="col-md-8 col-lg-9">
-                  <input name="instagram" type="text" class="form-control" id="Instagram" value="{{ $dataPeserta->instagram }}">
+                  <input name="instagram" type="url" class="form-control" id="Instagram" value="{{ $dataPeserta->instagram }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="tiktok" class="col-md-4 col-lg-3 col-form-label">Username Tiktok</label>
+                <label for="tiktok" class="col-md-4 col-lg-3 col-form-label">Link Tiktok</label>
                 <div class="col-md-8 col-lg-9">
-                  <input name="tiktok" type="text" class="form-control" id="tiktok" value="{{ $dataPeserta->tiktok }}">
+                  <input name="tiktok" type="url" class="form-control" id="tiktok" value="{{ $dataPeserta->tiktok }}">
                 </div>
               </div>
               @endif

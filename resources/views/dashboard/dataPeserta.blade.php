@@ -44,7 +44,7 @@
                                 @enderror
                             </div> --}}
                             <div class="form-group mt-3">
-                                <label>Facebook</label>
+                                <label>Link Facebook ( Optional )</label>
                                 <input type="url" name="facebook" value="{{ old('facebook') }}" class="form-control @error('facebook') is-invalid @enderror" value="{{ old('facebook') }}" required>
                                 @error('facebook')
                                 <div class="invalid-feedback">
@@ -53,7 +53,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mt-3">
-                                <label>Instagram</label>
+                                <label>Link Instagram ( Optional )</label>
                                 <input type="url" name="instagram" value="{{ old('instagram') }}" class="form-control @error('instagram') is-invalid @enderror" value="{{ old('instagram') }}" required>
                                 @error('instagram')
                                 <div class="invalid-feedback">
@@ -62,7 +62,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mt-3">
-                                <label>Twitter</label>
+                                <label>Link Twitter ( Optional )</label>
                                 <input type="url" name="twitter" value="{{ old('twitter') }}" class="form-control @error('twitter') is-invalid @enderror" value="{{ old('twitter') }}" required>
                                 @error('twitter')
                                 <div class="invalid-feedback">
@@ -71,7 +71,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mt-3">
-                                <label>Tiktok</label>
+                                <label>Link Tiktok ( Optional )</label>
                                 <input type="url" name="tiktok" value="{{ old('tiktok') }}" class="form-control @error('tiktok') is-invalid @enderror" value="{{ old('tiktok') }}" required>
                                 @error('tiktok')
                                 <div class="invalid-feedback">
@@ -88,7 +88,7 @@
     </div>
     @else
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Daftar Peserta Seminar</h1>
+      <h1 class="h2">Daftar Panitia Seminar</h1>
       {{-- <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -118,19 +118,70 @@
                 @php
                     $i = 1;
                 @endphp
+                @foreach ($daftarPanitia as $panitia)
+                <tbody>
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $panitia->nama }}</td>
+                        <td>{{ $panitia->nomor }}</td>
+                        <td>{{ $panitia->instansi }}</td>
+                        <td>{{ $panitia->profesi }}</td>
+                        <td>{{ (isset($panitia->pembayaran))?$panitia->pembayaran->metode : 'Belum Mengisi Bukti Pembayaran' }}</td>
+                        <td>{{ (isset($panitia->pembayaran))?$panitia->pembayaran->keterangan : 'Belum Mengisi Bukti Pembayaran'}}</td>
+                        {{-- <td colspan="6" align="center">
+                            <h1>Belum buat team</h1> <a href="">Tambah Team</a>
+                        </td> --}}
+                    </tr>
+                </tbody>
+                    
+                @endforeach
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Daftar Peserta Seminar</h1>
+      {{-- <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
+          <svg class="bi"><use xlink:href="#calendar3"/></svg>
+          This week
+        </button>
+      </div> --}}
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Nomor WA</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Instansi</th>
+                        <th scope="col">Profesi</th>
+                        <th scope="col">Seminar</th>
+                        <th scope="col">Keterangan</th>
+                    </tr>
+                </thead>
+                @php
+                    $i = 1;
+                @endphp
                 @foreach ($daftarPeserta as $peserta)
                 <tbody>
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $peserta->nama }}</td>
                         <td>{{ $peserta->nomor }}</td>
+                        <td>{{ $peserta->email }}</td>
                         <td>{{ $peserta->instansi }}</td>
                         <td>{{ $peserta->profesi }}</td>
                         <td>{{ (isset($peserta->pembayaran))?$peserta->pembayaran->metode : 'Belum Mengisi Bukti Pembayaran' }}</td>
                         <td>{{ (isset($peserta->pembayaran))?$peserta->pembayaran->keterangan : 'Belum Mengisi Bukti Pembayaran'}}</td>
-                        <td>
-                            <div class="badge text-bg-success">Completed</div>
-                        </td>
                         {{-- <td colspan="6" align="center">
                             <h1>Belum buat team</h1> <a href="">Tambah Team</a>
                         </td> --}}

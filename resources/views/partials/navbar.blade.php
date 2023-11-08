@@ -1,10 +1,10 @@
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #184082;">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #184082; box-shadow: 0px 0px 50px black">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="50">
-            <h4> Seminar Nasional</h4>
+            <h4 class="ms-2">Seminar Nasional</h4>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,9 +23,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/#benefit">Benefit</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a class="nav-link" href="/#">Timeline</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                   <a class="nav-link" href="/#faq">FAQ</a>
                 </li>
@@ -39,9 +39,9 @@
                 {{ auth()->user()->nama }}
               </a>
             
-              <ul class="dropdown-menu bg-body">
+              <ul class="dropdown-menu bg-body dropdown-menu-lg-end">
                 <li><a class="dropdown-item text-secondary" href="/dashboard">Dashboard</a></li>
-                <li><a class="dropdown-item text-secondary" href="/Pembayaran">Bukti Pembayaran</a></li>
+                <li><a class="dropdown-item text-secondary" href="/Pembayaran">{{ (auth()->user()->role == 'peserta')? 'Input Bukti Pembayaran' : 'Daftar Bukti Pembayaran' }}</a></li>
                 <li><hr class="dropdown-divider bg-primary"></li>
                 <form action="/logout" method="POST">
                   @csrf
