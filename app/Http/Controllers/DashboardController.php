@@ -18,6 +18,7 @@ class DashboardController extends Controller
         return view('dashboard.index', [
             'title' => 'Dashboard',
             'pembayaran' => $pembayaran,
+            'active'=> 'Dashboard',
             'dataPeserta'=> $dataPeserta
         ]);
     }
@@ -25,8 +26,15 @@ class DashboardController extends Controller
     public function dataPeserta(){
         $daftarPeserta = User::with('pembayaran', 'dataPeserta')->get()->all();
 
+        if (Auth::user()->role == 'peserta') {
+            $title = 'Input Data';
+        } else {
+            $title = 'Data Peserta';
+        }
+
         return view('dashboard.dataPeserta', [
-            'title' => 'Data Peserta',
+            'title'         => $title,
+            'active'        => 'Data Peserta',
             'daftarPeserta' => $daftarPeserta
         ]);
     }
@@ -34,8 +42,15 @@ class DashboardController extends Controller
     public function buktiPembayaran(){
         $pembayaran = Pembayaran::all();
 
+        if (Auth::user()->role == 'peserta') {
+            $title = 'Input Bukti Pembayaran';
+        } else {
+            $title = 'Data Pembayaran';
+        }
+
         return view('dashboard.Pembayaran', [
-            'title'         => 'Bukti Pembayaran',
+            'title'         => $title,
+            'active'        => 'Pembayaran',
             'pembayaran'    => $pembayaran
         ]);
     }

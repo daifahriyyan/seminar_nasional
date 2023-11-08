@@ -15,7 +15,7 @@ class UserController extends Controller
         $validator = $request->validate([
             'nama'      => 'required | max:255',
             'email'     => 'required | email | unique:users',
-            'password'  => 'required | lowercase | uppercase',
+            'password'  => 'required',
             'konfirmasi'=> 'required | same:password',
             'nomor'     => 'required | unique:users',
             'instansi'  => 'required',

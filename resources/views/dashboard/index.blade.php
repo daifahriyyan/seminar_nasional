@@ -31,14 +31,14 @@
       </div>
       @endif
       <div class="p-5 profile-card bg-body-tertiary border rounded-3 text-center">
-        <img src="{{ asset('storage/fotoProfil/'.$dataPeserta->profil) }}" alt="Foto Profile" height="100">
+        <img src="{{ (isset($dataPeserta))?asset('storage/fotoProfil/'.$dataPeserta->profil) : '/assets/user-male.png'}}" alt="Foto Profile" height="100">
         <h5>{{ auth()->user()->nama }}</h5>
         <h6>{{ auth()->user()->instansi }}</h6>
         <div class="social-links mt-2">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.twitter.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->twitter : '' }}" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.facebook.com/{{ (isset($dataPeserta))? $dataPeserta->facebook : '' }}" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->instagram : '' }}" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.tiktok.com/{{ (isset($dataPeserta))? '@'.$dataPeserta->tiktok : '' }}" class="linkedin"><i class="bi bi-tiktok"></i></a>
         </div>
       </div>
     </div>
@@ -67,7 +67,13 @@
         <div class="tab-content pt-2 p-4">
 
           <div class="tab-pane fade show active profile-overview" id="profile-overview">
-            <h5 class="card-title mb-3">Detail Profil</h5> <a class="btn btn-primary btn-sm " href="/dataPeserta" role="button">Lengkapi Data</a>
+            <h5 class="card-title mb-3">Detail {{ Auth::user()->role }}</h5> 
+            @if (is_null($dataPeserta))
+            <a class="btn btn-primary btn-sm " href="/dataPeserta" role="button">Lengkapi Data</a>
+            @endif
+            @if (is_null($pembayaran))
+            <a class="btn btn-success btn-sm " href="/Pembayaran" role="button">Upload Bukti</a>
+            @endif
             @if (session()->has('success'))
             <div class="row">
                 <div class="col d-flex justify-content-center">
@@ -236,28 +242,28 @@
 
               @if (isset($dataPeserta))
               <div class="row mb-3">
-                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
+                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Username Twitter</label>
                 <div class="col-md-8 col-lg-9">
                   <input name="twitter" type="text" class="form-control" id="Twitter" value="{{ $dataPeserta->twitter }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Username Facebook</label>
                 <div class="col-md-8 col-lg-9">
                   <input name="facebook" type="text" class="form-control" id="Facebook" value="{{ $dataPeserta->facebook }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Username Instagram</label>
                 <div class="col-md-8 col-lg-9">
                   <input name="instagram" type="text" class="form-control" id="Instagram" value="{{ $dataPeserta->instagram }}">
                 </div>
               </div>
 
               <div class="row mb-3">
-                <label for="tiktok" class="col-md-4 col-lg-3 col-form-label">Tiktok Profile</label>
+                <label for="tiktok" class="col-md-4 col-lg-3 col-form-label">Username Tiktok</label>
                 <div class="col-md-8 col-lg-9">
                   <input name="tiktok" type="text" class="form-control" id="tiktok" value="{{ $dataPeserta->tiktok }}">
                 </div>

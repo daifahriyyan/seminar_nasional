@@ -190,7 +190,7 @@
 
 <header class="navbar sticky-top bg-db flex-md-nowrap p-0 shadow" data-bs-theme="dark">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">
-    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Dashboard Seminar Nasional
+    <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Seminar Nasional
   </a>
 
   </div>
@@ -219,7 +219,7 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="sidebarMenuLabel">
             <a class="col-md-3 col-lg-2 me-0 px-3 fs-6 text-white text-decoration-none" href="#">
-              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Dashboard Seminar Nasional
+              <img src="assets/Logo Semnas No Text.png" alt="Logo PCC" width="25">Seminar Nasional
             </a>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -227,27 +227,27 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 text-white" aria-current="page" href="/">
+              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Home
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="/dashboard">
+              <a class="nav-link d-flex align-items-center gap-2 {{ ($active == 'Dashboard')? 'text-white' : '' }}" href="/dashboard">
                 <img src="assets/icon/folder.svg" width="15">
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="/dataPeserta">
+              <a class="nav-link d-flex align-items-center gap-2 {{ ($active == 'Data Peserta')? 'text-white' : '' }}" href="/dataPeserta">
                 <img src="assets/icon/layout.svg" width="15">
-                Daftar Peserta
+                {{ (Auth::user()->role == 'peserta')? 'Input Data' : 'Data Peserta' }}
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="/Pembayaran">
+              <a class="nav-link d-flex align-items-center gap-2 {{ ($active == 'Pembayaran')? 'text-white' : '' }}" href="/Pembayaran">
                 <img src="assets/icon/clipboard.svg" width="15">
-                Bukti Pembayaran
+                {{ (Auth::user()->role == 'peserta')? 'Input Bukti Pembayaran' : 'Data Pembayaran' }}
               </a>
             </li>
             <li class="nav-item">
@@ -300,7 +300,7 @@
           <hr class="my-3 text-white">
 
           <ul class="nav flex-column mb-auto">
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-white text-uppercase">
+            {{-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-white text-uppercase">
               <span>Account</span>
               <a class="nav-item" href="#" aria-label="Add a new report">
                 <svg class="bi"><use xlink:href="#plus-circle"/></svg>
@@ -320,7 +320,7 @@
               </svg>
                 Profile
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf
